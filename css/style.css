@@ -1,0 +1,526 @@
+*,
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+:root {
+    --main-width: 50vw;
+    --sub-width: 15vw;
+    --sub-sub-width: 10vw;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;  
+}
+
+.title {
+    flex-grow: 1; 
+    text-align: center;
+    font-size: 28px; 
+    margin: 10px 0; 
+}
+
+.search-container {
+    display: flex;
+    align-items: center; 
+    position: relative; 
+}
+
+.search {
+    width: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease; 
+}
+
+.search.active {
+    width: 150px; 
+    opacity: 1;
+    visibility: visible;
+}
+
+.search-btn {
+    margin-left: 10px; 
+    transition: transform 0.5s ease; 
+}
+
+.search-btn.active {
+    transform: translateX(-200px);
+}
+
+.search-results {
+    display: none; 
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    z-index: 1000;
+}
+
+.search-results div {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.search-results div:hover {
+    background-color: #f9f9f9;
+}
+
+main {
+    display: grid;
+    grid-template-columns: var(--sub-sub-width) var(--sub-width) var(--main-width) var(--sub-width) var(--sub-sub-width);
+    grid-template-rows: 7fr 1fr;
+    height: 85%;
+    max-height: 90vh;
+    max-width: 100vw;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.main-content,
+.sub-content,
+.sub-sub-content {
+    margin: 1em auto;
+    background-color: aliceblue;
+    border-radius: 0.5rem;
+    height: 95%;
+}
+
+.main-content {
+    width: calc(var(--main-width) - 2em);
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content .info {
+    width: 25rem;
+    margin: auto auto 2em;
+}
+
+.main-content .visual-info {
+    margin: 2em auto 1em;
+}
+
+.main-content img {
+    width: 90%;
+    aspect-ratio: 1.67;
+    border-radius: 0.5em;
+}
+
+.main-content .room-title {
+    font-size: 4em;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0.3em;
+    padding: 0.05em 0.2em;
+    background-color: #64b5f6;
+    color: white;
+    display: inline-block;
+}
+
+.main-content .room-detailed-info {
+    padding: 0.05em 0.2em;
+}
+
+.room-detailed-info div {
+    line-height: 1.8em;
+}
+
+.main-content .tags {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background-color: #4dd0e1;
+    color: white;
+    padding: 0.1em 0.5em;
+    border-radius: 0.25em;
+    margin: 0.1em;
+    font-size: 12px;
+}
+
+.teacher-list span + span::before, .student-list span + span::before {
+    content: "、";
+}
+
+.teachers, .students {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* ----------------------------------------------------- */
+
+.sub-content {
+    display: flex;
+    width: calc(var(--sub-width) - 2em);
+}
+
+.sub-content .info {
+    width: 90%;
+    margin: auto auto 2em;
+}
+
+.sub-content .visual-info {
+    margin: 2em auto 1em;
+}
+
+.sub-content img {
+    display: none;
+}
+
+.sub-content .room-title {
+    font-size: 3em;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ccc;
+    color: white;
+    display: inline-block;
+}
+
+.sub-content .tags {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sub-content .chargedBy, .sub-content .status {
+    display: none;
+}
+
+.sub-content .room-detailed-info > * > *:nth-child(1) {
+    display: none;
+}
+
+
+/* ---------------------------------------------------- */
+
+.sub-sub-content {
+    display: flex;
+    width: calc(var(--sub-sub-width) - 2em);
+}
+
+.sub-sub-content .info {
+    width: 90%;
+    margin: auto auto 2em;
+}
+
+.sub-sub-content .visual-info {
+    margin: 2em auto 1em;
+}
+
+.sub-sub-content img {
+    display: none;
+}
+
+.sub-sub-content .chargedBy, .sub-sub-content .status, .sub-sub-content .tags, .sub-sub-content .usage {
+    display: none;
+}
+
+.sub-sub-content .room-detailed-info > * > *:nth-child(1) {
+    display: none;
+}
+
+.sub-sub-content .room-title {
+    font-size: 2em;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ccc;
+    color: white;
+    display: inline-block;
+}
+
+
+.main-circle,
+.sub-circle,
+.sub-sub-circle {
+    margin: 0 auto;
+    aspect-ratio: 1;
+    width: 80%;
+}
+
+.main-circle {
+    max-height: 15vh;
+    max-width: 15vh;
+}
+
+.sub-circle {
+    max-height: 10vh;
+    max-width: 10vh;
+}
+
+.sub-sub-circle {
+    max-height: 5vh;
+    max-width: 5vh;
+}
+
+.main-circle::after,
+.sub-circle::after,
+.sub-sub-circle::after {
+    /* draw a circle here */
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #bdffd1;
+}
+
+.line {
+    /* draw a line here */
+    content: "";
+    display: block;
+    height: 2px;
+    background-color: #ffd1bd;
+    /* vertical middle */
+    position: relative;
+}
+
+.main-circle>.line {
+    width: var(--main-width);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sub-circle>.line {
+    width: var(--sub-width);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sub-sub-circle>.line {
+    width: var(--sub-sub-width);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal {
+    display: none;
+    position: fixed; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%; 
+    position: relative;
+    border-radius: 10px; 
+    font-size: 0.8rem;
+}
+
+.modal-content p, .modal-content div {
+    margin-bottom: 10px; 
+}
+
+.tag {
+    background-color: #007BFF; 
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px; 
+    display: inline-block; 
+    margin-right: 5px; 
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 30px; 
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+
+/* adapt smaller screen width */
+@media screen and (max-width: 1080px) {
+    :root {
+        --main-width: 70vw;
+        --sub-width: 15vw;
+    }
+
+    main {
+        grid-template-columns: var(--sub-width) var(--main-width) var(--sub-width);
+    }
+
+    .sub-sub-content {
+        display: none;
+    }
+
+    .sub-content .usage {
+        display: none;
+    }
+
+    .sub-content .room-title {
+        font-size: 2em;
+    }
+
+    .sub-sub-circle,
+    .sub-sub-circle::after {
+        display: none;
+    }
+    .modal {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+    }
+    
+    .modal-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        width: 80%;
+        max-width: 600px;
+    }
+    
+    .close {
+        cursor: pointer;
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    
+}
+
+/* adapt mobile devices */
+@media screen and (max-width: 800px) {
+    main {
+        height: 95%;
+        font-size: 0.9rem;
+    }
+
+    .main-content {
+        width: calc(var(--main-width) - .5em);
+    }
+
+    .main-content .info {
+        width: 80%;
+    }
+
+    .main-content img {
+        width: 100%;
+    }
+
+    .sub-content {
+        width: calc(var(--sub-width) - .5em);
+    }
+
+    .sub-content .tags {
+        display: none;
+    }
+
+    .main-circle {
+        width: calc(var(--main-width) - 2em);
+        max-height: 15vh;
+        max-width: 15vh;
+    }
+
+    .sub-circle {
+        width: calc(var(--sub-width) - 2em);
+        max-height: 10vh;
+        max-width: 10vh;
+    }
+
+    .sub-sub-circle {
+        width: calc(var(--sub-sub-width) - 2em);
+        max-height: 5vh;
+        max-width: 5vh;
+    }
+}
+
+.disabled {
+    pointer-events: none;
+    background-color: #ccc;
+}
+
+/*--changed--*/
+.map-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+.map-container {
+    position: relative; /* 修改为 relative 以便子元素使用 absolute 定位 */
+    width: 68%; /* 设定容器宽度为父元素的xx% */
+    margin: 0 auto; /* 居中容器 */
+}
+.map-container img {
+    position: relative; 
+    width: 100%;
+    height: auto;
+    
+}
+.room-btn {
+    position: absolute; /* 相对定位 */
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 4px solid #007bff; /* 设置边框颜色和宽度 */
+    border-radius: 50%; /* 将按钮形状改为圆形 */
+    cursor: pointer;
+    width: 15px; /* 设置按钮宽度 */
+    height: 15px; /* 设置按钮高度 */
+    padding: 0
+}
+.room-btn:hover {
+    background-color: #0056b3;
+}
+/*--changed--*/
+
+
+.search {
+    display: block;
+    width: 40%;
+}
+
+.hind {
+    display: none;
+}
+
+.footer {
+    background-color: #0056b3;
+    color:white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>济事楼参观导览</title>
+    <!-- importing jquery -->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <!-- index.js  -->
+    <script src="js\index.js"></script>
+    <!-- style.css -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="title">
+                <h1>济事楼参观导览</h1>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search hind" placeholder="输入房间号或标签...">
+                <div id="searchResults" class="search-results"></div>
+            </div>
+            <div class="search-btn">
+                    <i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" class="feather feather-search" viewBox="0 0 24 24">
+                            <defs/>
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="M21 21l-4.35-4.35"/>
+                          </svg>
+                    </i>
+            </div>
+        </nav>
+    </header>
+
+    
+    <main class="map-main">
+        <div class="map-container">
+            
+            <!-- 地图 -->
+            <img src="images/map.png" alt="map of jishi building" class="map">
+        
+            <button class="room-btn" data-room="408" style="left: 65%; top: 78%;"></button><!-- done -->
+            <button class="room-btn" data-room="410" style="left: 61.5%; top: 80%;"></button><!-- done -->
+            <button class="room-btn" data-room="412" style="left: 57%; top: 82.9%;"></button><!-- done -->
+            <button class="room-btn" data-room="414" style="left: 42%; top: 82%;"></button><!-- done -->
+            <button class="room-btn" data-room="416" style="left: 34.5%; top: 76.2%;"></button><!-- done -->
+            <button class="room-btn" data-room="418" style="left: 27.5%; top: 70%;"></button><!-- done -->
+
+            <button class="room-btn" data-room="407" style="left: 61.5%; top: 63.2%;"></button><!-- done -->
+            <button class="room-btn" data-room="409" style="left: 55.7%; top: 67%;"></button><!-- done -->
+            <button class="room-btn" data-room="417" style="left: 38%; top: 63.5%;"></button><!-- done -->
+            <button class="room-btn" data-room="419" style="left: 31.5%; top: 57.5%;"></button><!-- done -->
+
+            <button class="room-btn" data-room="426" style="left: 17.2%; top: 50.6%;"></button><!-- done -->
+            <button class="room-btn" data-room="428" style="left: 19.4%; top: 44%;"></button><!-- done -->
+            <button class="room-btn" data-room="430" style="left: 23.9%; top: 34.3%;"></button><!-- done -->
+            <button class="room-btn" data-room="432" style="left: 28%; top: 22%;"></button><!-- done -->
+            <button class="room-btn" data-room="434" style="left: 29.5%; top: 18%;"></button><!-- done -->
+
+            <button class="room-btn" data-room="442" style="left: 37.7%; top: 29%;"></button><!-- done -->
+            <button class="room-btn" data-room="444" style="left: 41.4%; top: 32.6%;"></button><!-- done -->
+            <button class="room-btn" data-room="446" style="left: 45%; top: 36.6%;"></button><!-- done -->
+            <button class="room-btn" data-room="448" style="left: 48.5%; top: 37.6%;"></button><!-- done -->
+            <button class="room-btn" data-room="450" style="left: 54.2%; top: 37.6%;"></button><!-- done -->
+
+            <button class="room-btn" data-room="441" style="left: 43.5%; top: 23.4%;"></button><!-- done -->
+            <button class="room-btn" data-room="443" style="left: 47%; top: 26.5%;"></button><!-- done -->
+            <button class="room-btn" data-room="451" style="left: 54.7%; top: 26.5%;"></button><!-- done -->
+            <button class="room-btn" data-room="455" style="left: 62.7%; top: 20%;"></button><!-- done -->
+            <button class="room-btn" data-room="456" style="left: 64.9%; top: 28.8%;"></button><!-- done -->
+
+        </div>
+            
+        
+    </main>
+
+        <!-- Modal -->
+        <div id="infoModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                        <p id="roomDescription"></p>
+            </div>
+        </div>
+        <footer class="footer">
+            <p>点击地图上的按钮以查看房间详情。</p>
+            <p>点击右上角搜索按钮根据房间号或标签进行检索。</p>
+        </footer>
+</body>
+
+</html>
